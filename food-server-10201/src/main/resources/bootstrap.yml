@@ -1,0 +1,25 @@
+####bootstrap(.yml/.properties)可以理解成系统级别的一些参数配置，这些参数一般是不会变动的，优先加载此配置
+# nacos配置
+server:
+  port: 10201
+
+spring:
+  application:
+    name: food-server
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848 #Nacos服务注册中心地址
+      config:
+        server-addr: localhost:8848 #Nacos作为配置中心地址
+        file-extension: yaml #指定yaml格式的配置
+        namespace: elmserver-springcloud
+        group: food_group
+
+  config:
+# 引入通用的配置文件-数据库连接配置文件
+    import: nacos:commons-dev.yaml?group=COMMONS_GROUP
+# ${spring.application.name}-${spring.profile.active}.${spring.cloud.nacos.config.file-extension}
+# nacos-config-client-dev.yaml
+
+# nacos-config-client-test.yaml   ----> config.info

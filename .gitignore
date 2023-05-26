@@ -1,0 +1,13 @@
+# Project exclude paths
+/api-commons/target/
+/business-server-10300/target/
+/business-server-10301/target/
+/cart-server-10400/target/
+/cart-server-10401/target/
+/deliveryaddress-server-10500/target/
+/food-server-10200/target/
+/food-server-10201/target/
+/gateway-server-14000/target/
+/orders-server-10600/target/
+/orders-server-10601/target/
+/user-server-10100/target/

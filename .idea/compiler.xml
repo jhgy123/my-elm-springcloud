@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <option name="BUILD_PROCESS_HEAP_SIZE" value="2048" />
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="api-commons" />
+        <module name="orders-server-10600" />
+        <module name="cart-server-10400" />
+        <module name="cart-server-10401" />
+        <module name="orders-server-10601" />
+        <module name="user-server-10100" />
+        <module name="business-server-10300" />
+        <module name="business-server-10301" />
+        <module name="deliveryaddress-server-10500" />
+        <module name="food-server-10201" />
+        <module name="food-server-10200" />
+        <module name="gateway-server-14000" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="mytest" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

@@ -1,0 +1,16 @@
+#server:
+#  port: 10600
+#
+#spring:
+#  application:
+#    name: orders-server
+#  cloud:
+#    nacos:
+#      discovery:
+#        server-addr: localhost:8848 #Nacos服务注册中心地址
+spring:
+  profiles:
+    active: dev # 表示开发环境
+  #    active: test # 表示测试环境
+  #    active: info
+
