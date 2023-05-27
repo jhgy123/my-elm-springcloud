@@ -7,7 +7,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 @Slf4j
-@CrossOrigin
 @RestController
 @RequestMapping("user")
 @Tag(name = "user控制器 V1")

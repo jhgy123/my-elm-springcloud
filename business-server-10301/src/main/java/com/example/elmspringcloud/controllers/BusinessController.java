@@ -16,7 +16,6 @@ import org.springframework.web.client.RestTemplate;
 import java.util.List;
 
 @Slf4j
-@CrossOrigin
 @RestController
 @RequestMapping("business")
 @Tag(name = "business控制器 V1")

@@ -25,43 +25,82 @@ spring:
         - id: user_server_route                #路由的ID，没有固定规则但要求唯一，建议配合服务名
           uri: lb://user-server                #匹配后提供服务的路由地址
           predicates:
-            - Path=/userconfig/*/**,/user/*/**     #configAPI路径,微服务具体功能路径
+            - Path=/userconfig/*/**,/user/*/**,/user     #configAPI路径,微服务具体功能路径
 
         - id: orders_server_route              #路由的ID，没有固定规则但要求唯一，建议配合服务名
           uri: lb://orders-server              #匹配后提供服务的路由地址
           predicates:
-            - Path=/ordersconfig/*/**,/orders/*/**,/orderdetailet/*/**       #configAPI路径,微服务具体功能路径
+            - Path=/ordersconfig/*/**,/orders/*/**,/orderdetailet/*/**,/orders,/orderdetailet     #configAPI路径,微服务具体功能路径
 
         - id: food_server_route                #路由的ID，没有固定规则但要求唯一，建议配合服务名
           uri: lb://food-server                #匹配后提供服务的路由地址
           predicates:
-            - Path=/foodconfig/*/**,/food/*/**     #configAPI路径,微服务具体功能路径
+            - Path=/foodconfig/*/**,/food/*/**,/food     #configAPI路径,微服务具体功能路径
 
         - id: deliveryaddress_server_route     #路由的ID，没有固定规则但要求唯一，建议配合服务名
           uri: lb://deliveryaddress-server     #匹配后提供服务的路由地址
           predicates:
-            - Path=/deliveryaddressconfig/*/**,/deliveryaddress/*/**       #configAPI路径,微服务具体功能路径
+            - Path=/deliveryaddressconfig/*/**,/deliveryaddress/*/**,/deliveryaddress       #configAPI路径,微服务具体功能路径
 
         - id: cart_server_route                 #路由的ID，没有固定规则但要求唯一，建议配合服务名
           uri: lb://cart-server                 #匹配后提供服务的路由地址
           predicates:
-            - Path=/cartconfig/*/**,/cart/*/**      #configAPI路径,微服务具体功能路径
+            - Path=/cartconfig/*/**,/cart/*/**,/cart      #configAPI路径,微服务具体功能路径
 
         - id: business_server_route             #路由的ID，没有固定规则但要求唯一，建议配合服务名
           uri: lb://business-server             #匹配后提供服务的路由地址
           predicates:
-            - Path=/businessconfig/*/**,/business/*/**       #configAPI路径,微服务具体功能路径
+            - Path=/businessconfig/*/**,/business/*/**,/business       #configAPI路径,微服务具体功能路径
 
       # 跨域配置
       globalcors:
+        add-to-simple-url-handler-mapping: true # 解决options请求被拦截问题
         cors-configurations:
           '[/**]': # 匹配所有请求
-            allowedOrigins: "*" # 跨域处理 允许所有的域
-            allowedMethods: # 支持的方法
+            allowedHeaders: "*"  # 跨域处理 允许所有的请求头
+            allowedOrigins: "*"  # 跨域处理 允许所有的域
+            allowedMethods:      # 支持的方法
               - GET
               - POST
               - PUT
               - DELETE
+#          '[**]': # 匹配所有请求
+#            allowedHeaders: "*"  # 跨域处理 允许所有的请求头
+#            allowedOrigins: "*"  # 跨域处理 允许所有的域
+#            allowedMethods: # 支持的方法
+#              - GET
+#              - POST
+#              - PUT
+#              - DELETE
+#      filter:
+#        remove-hop-by-hop:
+#          headers:
+#              # 以下是去掉网关默认去掉的请求响应头
+#            - trailer
+#            - te
+#            - keep-alive
+#            - transfer-encoding
+#            - upgrade
+#            - proxy-authenticate
+#            - connection
+#            - proxy-authorization
+#            - x-application-context
+#            # 以下是去掉服务层面定义的跨域
+#            - access-control-allow-credentials
+#            - access-control-allow-headers
+#            - access-control-allow-methods
+#            - access-control-allow-origin
+#            - access-control-max-age
+#            - vary
+#      globalcors:
+#        corsConfigurations:
+#          '[/**]':
+#            allowCredentials: true
+#            allowedOrigins: "*"
+#            allowedHeaders: "*"
+#            allowedMethods: "*"
+##            maxAge: 3628800
+
 
 #        - id: payment_routh2 #payment_route    #路由的ID，没有固定规则但要求唯一，建议配合服务名
 #          #uri: http://localhost:8001          #匹配后提供服务的路由地址
