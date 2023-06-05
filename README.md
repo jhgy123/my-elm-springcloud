@@ -1,26 +1,57 @@
-# 软件工程实训-中级
+# 软件服务工程
 ## 龚尹鸿杰 （20201050449）
 ### 后端
-* 主要技术：spring、hibernate、jpa、knife4j-springdoc-ui、spring scurity、日志文件
-* 项目结构目录：
-  ![002](images/readme/007.jag)
-* 主要实现：
-1. 使用jpa完成对各实体及对应的访问层。
-   ![](images/readme/001.jpg)
-2. 完成jpa数据访问层中的方法扩展，完成了商家按点餐分类编号查询，收货地址按用户查询，订单按用户查询，订单详情按订单号查询，用户按照用户名与密码登录等业务要求。
-   ![002](images/readme/005.jpg)
-3. 实现了各访问层对应的Service层与Controller层，实现了相关的api。
-   ![002](images/readme/006.jpg)
-4. 具备日志、api文档功能、分页查询功能。
-   ![002](images/readme/002.jpg)
-   ![003](images/readme/003.jpg)
-   ![004](images/readme/004.jpg)
-5. 增加spring scurity内容，具备JWT认证功能。
-   ![004](images/readme/008.jpg)
-   ![004](images/readme/009.jpg)
-   ![002](images/readme/010.jpg)
-6. 运行截图.
-   ![002](images/readme/011.jpg)
+* 主要技术：Spring Cloud 2022.0.0、Spring Boot 3.0.2、Sentinel 1.8.6、Nacos 2.2.1、MYSQL 8.0.32(运行在 CentOS 8.5 平台上)主从复制、 hibernate、jpa、knife4j-springdoc-ui
+* Spring Cloud项目结构目录文件：
+- ![image](images/readme/007.jpg)
+* 主要实现微服务项目结构：
+1. api-commons:通用的类文件，包含实体entity层、dao层、service层、controller层的通用的抽象类与接口，以及一些工具类。
+- ![](images/readme/001.jpg)
+2. 商家微服务集群项目文件及目录。
+- ![002](images/readme/101.jpg)
+- ![002](images/readme/102.jpg)
+3. 购物车微服务集群项目文件及目录。
+- ![002](images/readme/103.jpg)
+- ![002](images/readme/104.jpg)
+4. 送货地址微服务项目文件及目录。
+- ![002](images/readme/105.jpg)
+5. 食品微服务集群项目文件及目录。
+- ![004](images/readme/106.jpg)
+- ![004](images/readme/107.jpg)
+6. 订单微服务集群项目文件及目录。
+- ![002](images/readme/108.jpg)
+- ![002](images/readme/109.jpg)
+7. 用户微服务项目文件及目录。
+- ![002](images/readme/110.jpg)
+8. 网关gateway微服务项目文件及目录。
+- ![002](images/readme/111.jpg)
+- ![002](images/readme/112.jpg)
+9. mysql数据库主从配置。
+- ![002](images/readme/113.jpg)
+- ![002](images/readme/114.jpg)
+10. Nacos 2.2.1启动及相关内容。
+- ![002](images/readme/115.jpg)
+- ![002](images/readme/116.jpg)
+- ![002](images/readme/117.jpg)
+11. Sentinel-dashboard-1.8.6。
+- ![002](images/readme/118.jpg)
+- ![002](images/readme/119.jpg)
+- ![002](images/readme/120.jpg)
+- ![002](images/readme/121.jpg)
+- ![002](images/readme/122.jpg)
+- ![002](images/readme/123.jpg)
+- ![002](images/readme/124.jpg)
+- ![002](images/readme/125.jpg)
+- ![002](images/readme/126.jpg)
+- ![002](images/readme/127.jpg)
+- ![002](images/readme/128.jpg)
+- ![002](images/readme/129.jpg)
+- ![002](images/readme/130.jpg)
+- ![002](images/readme/131.jpg)
+- ![002](images/readme/132.jpg)
+- ![002](images/readme/133.jpg)
+12. API文档。
+- ![002](images/readme/134.jpg)
 
 ### 前端
 * 主要技术：angular、TypeScript。
@@ -96,7 +127,7 @@ let me=this;
 7. 对每个页面编写TypeScript，同时使用**MVVM**对页面中的内容进行双向绑定。
 8. 运行结果展示。
     - 登录页面
-   ![002](images/readme/015.jpg)
+    ![002](images/readme/015.jpg)
     - 注册页面
     ![002](images/readme/016.jpg)
     - 首页面
