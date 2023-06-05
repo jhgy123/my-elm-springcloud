@@ -13,7 +13,8 @@ public class MySentinelBlockHandler {
         return new CommonResult(4444,"sentinel触发了熔断降级");
     }
     //函数参数需要与controller方法的参数一致
-    public static List<Food>  findFoodsByOrderTypeIdHandlerException(@PathVariable int businessid,BlockException exception) {
+    public static List<Food>  findFoodsByOrderTypeIdHandlerException(@PathVariable int businessid,
+                                                                     BlockException exception) {
         List<Food> list =new LinkedList<>();
         return list;
     }

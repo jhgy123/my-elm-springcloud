@@ -12,7 +12,8 @@ public class MySentinelFallback {
         return new CommonResult(403,"服务出现问题了，请稍后再重试");
     }
     //函数参数需要与controller方法的参数一致
-    public static List<Food> findFoodsByOrderTypeIdHandlerFallback(@PathVariable int businessid, Throwable e) {
+    public static List<Food> findFoodsByOrderTypeIdHandlerFallback(@PathVariable int businessid,
+                                                                   Throwable e) {
         List<Food> list =new LinkedList<>();
         return list;
     }

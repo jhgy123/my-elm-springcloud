@@ -17,6 +17,23 @@ spring:
         file-extension: yaml #指定yaml格式的配置
         namespace: elmserver-springcloud
         group: user_group
+    sentinel:
+      transport:
+        dashboard: localhost:8080 #配置Sentinel dashboard地址
+        port: 8719
+#    sentinel:
+#      transport:
+#        dashboard: localhost:8080 #配置Sentinel dashboard地址
+#        port: 8719
+    #      scg:
+#        fallback:
+#          mode: response
+#            ## 响应的状态
+#          response-status: 403
+#            ## 响应体
+#          response-body: '{"code": 403,"message": "请求失败，稍后重试！"data":}'
+#      enabled: true
+
     gateway:
       discovery:
         locator:
@@ -26,32 +43,26 @@ spring:
           uri: lb://user-server                #匹配后提供服务的路由地址
           predicates:
             - Path=/userconfig/*/**,/user/*/**,/user     #configAPI路径,微服务具体功能路径
-
         - id: orders_server_route              #路由的ID，没有固定规则但要求唯一，建议配合服务名
           uri: lb://orders-server              #匹配后提供服务的路由地址
           predicates:
             - Path=/ordersconfig/*/**,/orders/*/**,/orderdetailet/*/**,/orders,/orderdetailet     #configAPI路径,微服务具体功能路径
-
         - id: food_server_route                #路由的ID，没有固定规则但要求唯一，建议配合服务名
           uri: lb://food-server                #匹配后提供服务的路由地址
           predicates:
             - Path=/foodconfig/*/**,/food/*/**,/food     #configAPI路径,微服务具体功能路径
-
         - id: deliveryaddress_server_route     #路由的ID，没有固定规则但要求唯一，建议配合服务名
           uri: lb://deliveryaddress-server     #匹配后提供服务的路由地址
           predicates:
             - Path=/deliveryaddressconfig/*/**,/deliveryaddress/*/**,/deliveryaddress       #configAPI路径,微服务具体功能路径
-
         - id: cart_server_route                 #路由的ID，没有固定规则但要求唯一，建议配合服务名
           uri: lb://cart-server                 #匹配后提供服务的路由地址
           predicates:
             - Path=/cartconfig/*/**,/cart/*/**,/cart      #configAPI路径,微服务具体功能路径
-
         - id: business_server_route             #路由的ID，没有固定规则但要求唯一，建议配合服务名
           uri: lb://business-server             #匹配后提供服务的路由地址
           predicates:
             - Path=/businessconfig/*/**,/business/*/**,/business       #configAPI路径,微服务具体功能路径
-
       # 跨域配置
       globalcors:
         add-to-simple-url-handler-mapping: true # 解决options请求被拦截问题
@@ -64,58 +75,20 @@ spring:
               - POST
               - PUT
               - DELETE
-#          '[**]': # 匹配所有请求
-#            allowedHeaders: "*"  # 跨域处理 允许所有的请求头
-#            allowedOrigins: "*"  # 跨域处理 允许所有的域
-#            allowedMethods: # 支持的方法
-#              - GET
-#              - POST
-#              - PUT
-#              - DELETE
-#      filter:
-#        remove-hop-by-hop:
-#          headers:
-#              # 以下是去掉网关默认去掉的请求响应头
-#            - trailer
-#            - te
-#            - keep-alive
-#            - transfer-encoding
-#            - upgrade
-#            - proxy-authenticate
-#            - connection
-#            - proxy-authorization
-#            - x-application-context
-#            # 以下是去掉服务层面定义的跨域
-#            - access-control-allow-credentials
-#            - access-control-allow-headers
-#            - access-control-allow-methods
-#            - access-control-allow-origin
-#            - access-control-max-age
-#            - vary
-#      globalcors:
-#        corsConfigurations:
-#          '[/**]':
-#            allowCredentials: true
-#            allowedOrigins: "*"
-#            allowedHeaders: "*"
-#            allowedMethods: "*"
-##            maxAge: 3628800
+
+#      default-filters:
+#        - name: Hystrix
+#          args:
+#            name: fallbackcmd
+#            fallbackUri: forward:/fallback
+#      default-filters:
+#        fallback:
 
 
-#        - id: payment_routh2 #payment_route    #路由的ID，没有固定规则但要求唯一，建议配合服务名
-#          #uri: http://localhost:8001          #匹配后提供服务的路由地址
-#          uri: lb://cloud-payment-service #匹配后提供服务的路由地址
-#          predicates:
-#            - Path=/payment/lb/**         # 断言，路径相匹配的进行路由
-            #- After=2020-02-21T15:51:37.485+08:00[Asia/Shanghai]
-            #- Cookie=username,zzyy
-            #- Header=X-Request-Id, \d+  # 请求头要有X-Request-Id属性并且值为整数的正则表达式
+#      default-filters:
+#        - name: Hystrix
+#          args:
+#            name: fallbackcmd
+#            fallbackUri: forward:/fallback
 
-#  config:
-## 引入通用的配置文件-数据库连接配置文件
-#    import: nacos:commons-dev.yaml?group=COMMONS_GROUP
 
-# ${spring.application.name}-${spring.profile.active}.${spring.cloud.nacos.config.file-extension}
-# nacos-config-client-dev.yaml
-
-# nacos-config-client-test.yaml   ----> config.info

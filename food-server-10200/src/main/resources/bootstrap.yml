@@ -15,10 +15,16 @@ spring:
         file-extension: yaml #指定yaml格式的配置
         namespace: elmserver-springcloud
         group: food_group
+    sentinel:
+      transport:
+        dashboard: localhost:8080 #配置Sentinel dashboard地址
+        port: 8719
 
   config:
 # 引入通用的配置文件-数据库连接配置文件
-    import: nacos:commons-dev.yaml?group=COMMONS_GROUP
+    import: nacos:commons-slave-dev.yaml?group=COMMONS_GROUP
+
+
 # ${spring.application.name}-${spring.profile.active}.${spring.cloud.nacos.config.file-extension}
 # nacos-config-client-dev.yaml
 

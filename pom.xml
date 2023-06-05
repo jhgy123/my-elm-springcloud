@@ -38,8 +38,10 @@
         <junit.version>4.12</junit.version>
         <log4j.version>1.2.17</log4j.version>
         <lombok.version>1.18.14</lombok.version>
-        <!--qlserver jdbc连接依赖-->
+        <!--sqlserver jdbc连接依赖-->
         <sqlserver.version>10.2.0.jre11</sqlserver.version>
+        <!--mysql jdbc连接依赖-->
+        <mysql.version>8.0.32</mysql.version>
         <!-- huotool工具类       -->
         <hutool.version>5.1.0</hutool.version>
         <!-- spring-boot-starter-data-jpa -->
@@ -49,7 +51,6 @@
         <!--  围绕提供JPA编程接口的Hibernate Core的一个包装-->
         <hibernate-entitymanager.version>5.6.0.Final</hibernate-entitymanager.version>
         <hibernate-core>5.6.0.Final</hibernate-core>
-
 
     </properties>
 
@@ -98,6 +99,12 @@
                 <groupId>com.microsoft.sqlserver</groupId>
                 <artifactId>mssql-jdbc</artifactId>
                 <version>${sqlserver.version}</version>
+            </dependency>
+            <!--   mysql 的jdbc驱动包-->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
             </dependency>
             <!--一个Java基础工具类，对文件、流、加密解密、转码、正则、线程、XML等JDK方法进行封装，组成各种Util工具类-->
             <dependency>

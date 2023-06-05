@@ -31,7 +31,7 @@ spring:
 
   config:
 # 引入通用的配置文件-数据库连接配置文件
-    import: nacos:commons-dev.yaml?group=COMMONS_GROUP
+    import: nacos:commons-slave-dev.yaml?group=COMMONS_GROUP
 # ${spring.application.name}-${spring.profile.active}.${spring.cloud.nacos.config.file-extension}
 # nacos-config-client-dev.yaml
 
