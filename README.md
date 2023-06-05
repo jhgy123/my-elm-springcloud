@@ -52,6 +52,8 @@
 - ![002](images/readme/133.jpg)
 12. API文档。
 - ![002](images/readme/134.jpg)
+13. 所有微服务启动后的截图。
+- ![002](images/readme/135.jpg)
 
 ### 前端
 * 主要技术：angular、TypeScript。
