@@ -1,5 +1,7 @@
 # 软件服务工程
 ## 龚尹鸿杰 （20201050449）
+### 项目整体架构图
+- ![image](images/readme/jiagoutu.png)
 ### 后端
 * 主要技术：Spring Cloud 2022.0.0、Spring Boot 3.0.2、Sentinel 1.8.6、Nacos 2.2.1、MYSQL 8.0.32(运行在 CentOS 8.5 平台上)主从复制、 hibernate、jpa、knife4j-springdoc-ui
 * Spring Cloud项目结构目录文件：
